@@ -1,0 +1,468 @@
+:root{
+    /* Botones */
+    
+    /* Dark */
+    /* --dark-color: #39325E; */
+    /* --dark-color2: #1D1A2B; */
+    --btn-add-v2: #E14658;
+    /* --logo-v2: #C1B1A2; */
+    --logo-v2: #FEE437;
+    --dark-color: #413968;
+    --dark-color2: #363053;
+    --dark-text: #e3e3e3;
+    
+    /* Light */
+    --btn-add: #5BCC96;
+    --logo-v1: #FEE437;
+    --light-color: #FAFAFA;
+    --light-color2: #f1f1f1;
+    --light-text: #000;
+
+    --alert-information: #2F96B4;
+    --alert-success: #51A351;
+    --alert-warning: #F89406;
+    --alert-danger: #BD362F;
+    
+
+
+}
+*{
+    box-sizing: border-box;
+    /* transition: background-color 0.3s ease-in-out; */
+}
+body{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    color: var(--light-text);
+    grid-template-columns: 70px auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas: "logo menu-up"
+                        "menu-left container"
+    ;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Menu lateral                                */
+/* -------------------------------------------------------------------------- */
+
+.menu-left{
+    grid-area: menu-left;
+    background-color: var(--light-color);
+}
+.menu-left .btn-menu{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--light-text);
+    user-select: none;
+}
+
+.menu-left .btn-menu:hover{
+    background-color: var(--light-color2);
+}
+
+.menu-left .btn-menu span{
+    margin-top: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Menu de arriba                               */
+/* -------------------------------------------------------------------------- */
+.menu-up{
+    grid-area: menu-up;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.logo{
+    grid-area: logo;
+    background-color: var(--logo-v1);
+    height: 60px;
+    width: 70px;
+    text-align: center;
+}
+.logo::before{
+    content: 'J&A';
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    font-weight: 800;
+    color: var(--dark-color2);
+}
+.menu-up .buscador{
+    position: absolute;
+    left: 100px;
+    align-self: center;
+}
+.buscador input{
+    display: block;
+    height: 30px;
+    width: 280px;
+    padding: 0 20px;
+    border-radius: 25px;
+    background-color: var(--light-color2);
+    font-weight: 700;
+    color: var(--light-text);
+    font-size: 16px;
+    outline: none;
+}
+
+.buscador input::placeholder{
+    color: var(--light-text);
+}
+.menu-up .notification{
+    text-align: center;
+    height: inherit;
+    width: 70px;
+    line-height: 60px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.menu-up .notification i{
+    font-size: 25px;
+    color: var(--light-text);
+}
+.menu-up .dark-mode{
+    position: absolute;
+    align-self: center;
+    height: 30px;
+    width: 65px;
+    right: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    background-color: #343D58;
+    /* transition: 0.2s ease all; */
+}
+.menu-up .dark-mode i{
+    color: #fff;
+    font-size: 18px;
+}
+.dark-mode::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    display: block;
+    height: 100%;
+    width: 32.5px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--light-color2);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease all;
+}
+/* -------------------------------------------------------------------------- */
+/*                                 contenedor                                 */
+/* -------------------------------------------------------------------------- */
+
+.container{
+    grid-area: container;
+    background-color: var(--light-color2);
+    overflow: hidden;
+}
+.contenedor-task{
+    height: 100%;
+    width: 100%;
+}
+.nav-filter{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+.nav-filter .buscador {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.nav-filter .buscador input{
+    border: solid 0.5px #000;
+
+}
+.nav-filter h2{
+    color: var(--light-text);
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0 50px;
+}
+.nav-filter .select{
+    display: block;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    padding: 5px 10px;
+    margin-right: 30px;
+}
+.nav-filter .btn-filter{
+    height: 35px;
+    width: 35px; 
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.nav-filter .btn-filter i{
+    font-size: 25px;
+    color: var(--light-text);
+}
+.nav-filter .btn-filter:hover{
+    background-color: var(--light-color);
+}
+
+.btn-add{
+    position: absolute;
+    right: 50px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--btn-add);
+    width: 180px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+}
+
+.container-task{
+    height: calc(100% - 50px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-gap: 20px;
+    overflow-y: scroll;
+    padding: 0 20px;
+}
+.task{
+    position: relative;
+    background-color: var(--light-color);
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.btn_acciones{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.btn_acciones .editar,
+.btn_acciones .eliminar{
+    margin: 2px;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    width: 70px;
+    height: 25px;
+    opacity: 0.9;
+    font-weight: bold;
+
+}
+.btn_acciones .editar:hover,
+.btn_acciones .eliminar:hover{
+    opacity: 1;
+}
+.btn_acciones .eliminar{
+    background-color: var(--alert-danger);
+}
+.btn_acciones .editar{
+    background-color: var(--alert-warning);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Disenio enlaces                              */
+/* -------------------------------------------------------------------------- */
+
+.task.enlace{
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}
+.task.enlace > p{
+    font-weight: bold;
+    word-wrap: break-word;
+}
+.task.enlace a > p{
+    padding: 0;
+    margin: 0;
+}
+.task.enlace a{
+    display: inline-block;
+    width: 100%;
+    max-height: 100px;
+    font-size: 14px;
+    text-decoration: none;
+    word-wrap: break-word;
+    overflow-y: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Modal                                   */
+/* -------------------------------------------------------------------------- */
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.modal.active_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_contenedor{
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+    min-height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.modal_contenedor form{
+    width: 90%;
+    margin: auto;
+}
+.form_group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.form_group label{
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 18px;
+}
+.form_group input{
+    padding: 8px 10px;
+    font-size: 17px;
+}
+.modal_contenedor form input[type="submit"],
+.cancelar{
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    background-color: #51A351;
+    color: #fff;
+}
+.modal_contenedor .close_modal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #000;
+    font-size: 25px;
+    cursor: pointer;
+}
+.modal_contenedor .cancelar{
+    width: 90%;
+    background-color: #BD362F;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Dark Mode                                 */
+/* -------------------------------------------------------------------------- */
+body.active-dark{
+    color: var(--dark-text);
+}
+body.active-dark .menu-left{
+    background-color: var(--dark-color);
+}
+body.active-dark .menu-left .btn-menu{
+    color:  var(--dark-text);
+}
+body.active-dark .menu-left .btn-menu:hover{
+    background-color: var(--dark-color2);
+}
+body.active-dark .menu-up{
+    background-color: var(--dark-color);
+}
+body.active-dark .logo{
+    background-color: var(--logo-v2);
+}
+body.active-dark .buscador input{
+    background-color: var(--dark-color2);
+    color: var(--dark-text);
+    border: 0.5px solid #fff;
+}
+body.active-dark .nav-filter .btn-filter:hover{
+    background-color: var(--dark-color);
+}
+body.active-dark .buscador input::placeholder{
+    color: var(--dark-text);
+}
+body.active-dark .menu-up .notification i{
+    color: var(--dark-text);
+}
+body.active-dark .task{
+    background-color: var(--dark-color);
+}
+body.active-dark .btn-add{
+    background-color: var(--btn-add-v2);
+}
+body.active-dark .nav-filter .btn-filter i{
+    color: var(--dark-text);
+}
+body.active-dark .nav-filter h2{
+    color: var(--dark-text);
+}
+body.active-dark .container{
+    background-color: var(--dark-color2);
+}
+body.active-dark .dark-mode{
+  background: orange;
+}
+body.active-dark .dark-mode::before{
+    transform: translateX(100%);
+}

@@ -1,0 +1,953 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #4568DC;
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+}
+
+.main-menu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctn-menu {
+    width: 100%;
+    margin: auto;
+    height: 600px;
+    padding: 0 20px;
+}
+.information-menu {
+    display: none;
+    height: inherit;
+}
+.ctn-form-login {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    padding: 40px 10px;
+    background-color: #2E3E53;
+    height: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.options {
+    height: 30px;
+    border-radius: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.button-options {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: white;
+    height: 35px;
+    width: 120px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 5px;
+    outline: none;
+}
+.active-options {
+    background-color: #62CDB9;
+    color: white;
+    border: 1px solid #62CDB9;
+}
+.ctn-form-login h2 {
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+}
+.form-login {
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    top: 135px;
+    left: 0;
+    transition: left 0.4s ease-in-out .1s;
+}
+.form-register {
+    position: absolute;
+    height: 450px;
+    width: 100%;
+    left: 700px;
+    top: 125px;
+    transition: left 0.4s ease-in-out .1s;
+}
+
+.form-group {
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.form-register .form-group {
+    margin: 30px auto;
+}
+
+.form-group input {
+    display: block;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 20px;
+    color: #e5e5e5;
+    outline: none;
+}
+.form-group input:valid{
+    background-color: transparent;
+}
+.form-group input:first-child {
+    margin-top: 0;
+}
+
+.form-group input:focus~label,
+.form-group input:valid~label{
+    top: -18px;
+}
+.form-group label {
+    position: absolute;
+    color: #e5e5e5;
+    top: 10px;
+    left: 10px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+.warning-error{
+    margin-top: 10px;
+    margin-left: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #e5e5e5;
+    display: none;
+}
+
+.barra {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.barra::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    transition: 0.3s ease width;
+}
+
+.form-group input:focus~.barra::before {
+    width: 100%;
+}
+
+.terms {
+    margin-top: -5px;
+    margin-left: 15px;
+    display: flex;
+    width: 100%;
+    padding: 0 10px;
+    justify-content: center;
+    color: #e5e5e5;
+    font-size: 15px;
+}
+
+.terms input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-iniciar,
+.btn-registrar {
+    font-family: 'Roboto', sans-serif;
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+    background: linear-gradient(to right, #B06AB3, #4568DC);
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 55px auto 45px auto;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    height: 40px;
+    transition: 0.9s ease;
+}
+
+.btn-registrar {
+    margin: 20px auto 20px auto;
+}
+
+.btn-iniciar:hover,
+.btn-registrar:hover {
+    background: -webkit-linear-gradient(to right, #4568DC, #B06AB3);
+    background: linear-gradient(to right, #4568DC, #B06AB3);
+}
+
+.forgot-pwd,
+.have-accont {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #e5e5e5;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 40px;
+}
+.have-accont{
+    margin: 0;
+}
+.forgot-pwd a,
+.have-accont a {
+    text-decoration: none;
+    color: #62CDB9;
+}
+/* -------------------------------------------------------------------------- */
+/*                             Estilos del inicio                             */
+/* -------------------------------------------------------------------------- */
+.header-inicio{
+    height: 80px;
+    width: 100%;
+    background-color: #000;
+    transition: 0.3s ease-in-out transform;
+}
+body.active-barra .header-inicio,
+body.active-barra main{
+    transform: translateX(-80%);
+}
+body.active-barra .menu-lateral{
+    transform: translateX(0%);
+}
+.nav{
+    height: inherit;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-size: 25px;
+    color: #fff;
+    font-weight: 600;
+}
+.profile{
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+.menu-lateral{
+    position: fixed;
+    background-color: #212529;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out transform;
+}
+.menu-lateral .datos{
+    height: 135px;
+    width: 100%;
+    text-align: center;
+    background-color: #243D51;
+    color: #e0e0e0;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.datos span{
+    color: #4DABF7;
+    font-size: 35px;
+    padding-bottom: 10px;
+}
+.datos p{
+    padding-bottom: 5px;
+}
+.opciones{
+    width: 100%;
+    height: auto;
+}
+.opcion{
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    transition: .2s ease-in background;
+    padding: 0 25px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+a.opcion{
+    text-decoration: none;
+}
+.opcion:hover{
+    background-color: #339AF0;
+}
+.opcion::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 54px;
+    width: 100%;
+}
+.icono-opcion{
+    color: #fff;
+    font-size: 22px;
+    margin-right: 15px;
+    font-weight: 700;
+}
+.texto-opcion{
+    color: #fff;
+    font-size: 18px;
+}
+/* -------------------------------------------------------------------------- */
+/*                              Contenedor panels                             */
+/* -------------------------------------------------------------------------- */
+.contenedor-tab{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    transition: 0.3s ease-in-out transform;
+}
+.tab{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -1000%;
+    text-align: center;
+}
+.tab.visible-tab{
+    left: 0;
+}
+.opcion.active-tab{
+    background-color: #339AF0;
+}
+
+/*! -------------------------------------------------------------------------- */
+/*?                         Estilos de modulo enlaces                         */
+/*! -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*?                             Gestor de enlaces                             */
+/* -------------------------------------------------------------------------- */
+.contenedor-links{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 10px;
+}
+/** overla */
+.overlay{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.close-overlay{
+    display: none;
+    position: fixed;
+    font-size: 45px;
+    top: 15px; 
+    right: 19px;
+    color: #fff;
+}
+div.overlay .agregar-link{
+    display: block;
+    height: 400px;
+    visibility: visible;
+    z-index: 1000000;
+    visibility: visible;
+    transition: .4s ease-in 0.5s visibility;
+}
+.add{
+    display: none;
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.tab.visible-tab .contenedor-links .view-pc .add{
+    display: block;
+}
+div.overlay .close-overlay{
+    display: block;
+}
+.agregar-link{
+    width: 90%;
+    height: 450px;
+    padding: 20px;
+    border: 1px solid #dfdfdf;
+    background-color: #f1f1f1;
+    display: none;
+    visibility: hidden;
+}
+.title-form{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #000;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.form-agregar-enlace input[type="text"],
+.form-agregar-enlace input[type="url"]{
+    font-family: 'Nunito Sans', sans-serif;
+    border: 5px solid transparent;
+    background-color: #f7f7f9;
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 35px;
+    outline: none;
+    transition: 0.20s ease-in-out box-shadow 0.10s;
+}
+.form-agregar-enlace input[type="text"]:focus,
+.form-agregar-enlace input[type="url"]:focus{
+    box-shadow: 0 0 0 0.2rem #c6c6c6;
+}
+.group-select{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+.form-agregar-enlace label{
+    color: #757575;
+    font-weight: 300;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.form-agregar-enlace select{
+    font-family: 'Nunito Sans', sans-serif;
+    width: 70%;
+    height: 45px;
+    font-size: 16px;
+    padding: 10px;
+}
+.form-agregar-enlace select option{
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+.form-agregar-enlace input[type="submit"]{
+    font-family: 'Nunito Sans', sans-serif;
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    width: 90%;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    border: none;
+}
+/** Listar enlaces */
+.listar-link{
+    width: 100%;
+    height: auto;
+}
+.contenedor-buscador{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.contenedor-buscador form{
+    width: 100%;
+}
+.form-group-search{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.form-group-search i{
+    position: absolute;
+    top: 11px;
+    right: 24px;
+    font-size: 20px;
+    color: #757575;
+}
+
+.form-group-search input{
+    display: block;
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 17px;
+    padding: 0 25px;
+}
+.form-group-search input:focus{
+    box-shadow: 0 0 0 0.2rem  rgba(133, 127, 127, 0.5);
+    /* box-shadow: 0 0 0 0.2rem #007bff40; */
+}
+
+/* -------------------------------------------------------------------------- */
+/*?                          Contenedor enlaces tabla                          */
+/* -------------------------------------------------------------------------- */
+.contenedor-tabla{
+    height: auto;
+    width: 100%;
+    overflow-x: scroll;
+}
+.contenedor-tabla::-webkit-scrollbar{
+    display: none;
+}
+.table{
+    font-family: 'Nunito Sans', sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+.table thead{
+    background-color: #ffffff;
+    margin-bottom: 200px;
+    border: 2px solid rgba(133, 127, 127, 0.5);
+}
+.table thead th{
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.table tbody tr{
+    background-color: #ffffff;
+    border: 1.5px solid rgba(133, 127, 127, 0.5);
+}
+.table tbody td{
+    font-size: 18px;
+    padding: 10px;
+}
+.link{
+    color: #1d4fac;
+    text-decoration: none;
+}
+.link:hover{
+    text-decoration: underline;
+}
+.link:visited{
+    color: #1d4fac;
+}
+.table tbody td:nth-child(3){
+    font-size: 14px;
+    padding: 0 5px;
+}
+.table tbody td:nth-child(4){
+    padding: 0;
+}
+.table .name-td span{
+    display: block;
+    font-size: 20px;
+    margin-right: 5px;
+    transition: .3s ease-in transform;
+}
+.table .name-td span:hover{
+    transform: scale(1.2);
+}
+.operaciones{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    display: block;
+    line-height: 35px;
+    background-color: violet;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+    margin: 2px;
+    cursor: pointer;
+}
+.btn i{
+    height: 100%;
+    width: 100%;
+}
+.btn-edit{
+    background-color: #ffc107;
+    border: 1px solid #ffc107;
+}
+.btn-edit:hover{
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+.btn-delete{
+    background-color: #dc3445;
+    border: 1px solid #dc3445;
+}
+.btn-delete:hover{
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* -------------------------------------------------------------------------- */
+/*?                               Seccion iconos                               */
+/* -------------------------------------------------------------------------- */
+.fa-facebook{
+    color: #3b5998;
+}
+.fa-youtube{
+    color: #c4302b;
+}
+.fa-instagram{
+    color: #BA1A5D;
+}
+.fa-bookmark{
+    color: green;
+}
+
+/* -------------------------------------------------------------------------- */
+/*?                              Seccion Usuarios                              */
+/* -------------------------------------------------------------------------- */
+.contenedor-usuario{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.personal-information,
+.account-information{
+    padding: 10px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+}
+.title-information{
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.form{
+    width: 90%;
+    margin: auto;
+}
+.icono-profile{
+    background-color: #243D51;
+    margin: 15px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icono-profile i{
+    /* color: #4DABF7; */
+    color: #fff;
+    font-size: 60px;
+}
+.grupo-form{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.grupo-form select{
+    font-family: 'Nunito', sans-serif;
+    width: 60%;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+
+}
+.grupo-form label{
+    font-family: 'Nunito', sans-serif;
+    width: 40%;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+}
+.grupo-form input{
+    font-family: 'Nunito', sans-serif;    
+    width: 60%;
+    font-size: 18px;
+    font-weight: 300;
+    height: 30px;
+    padding: 0 5px;
+}
+.form input[type="submit"]{
+    margin: 10px auto;
+    height: 40px;
+    width: 90%;
+    border: none;
+    background-color: #000;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 300;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.account-information{
+   margin: 20px 0;
+}
+.account-information .form{
+    margin-top: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*?                               Seccion Desktop                              */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 600px){
+    div.overlay .agregar-link{
+        height: 370px;
+        width: 60%;
+        overflow: hidden;
+    }
+    .form-agregar-enlace input[type="submit"]{
+        margin-top: 30px;
+    }
+    .menu-lateral{
+        width: 300px;
+    }
+    body.active-barra .header-inicio,
+    body.active-barra main{
+        transform: translateX(-300px);
+    }
+}
+@media screen and (min-width: 730px) {
+    .tab.visible-tab .contenedor-links .view-pc .add{
+        display: none;
+    }
+    .main-menu {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .terms{
+        margin-left: 25px;
+    }
+    .ctn-menu {
+        position: relative;
+        width: 700px;
+        height: 580px;
+    }
+    .ctn-form-login {
+        width: 350px;
+        border-radius: 0 8px 8px 0;
+        top: 0;
+        left: 350px;
+        position: absolute;
+        transition: 0.6s ease-in-out left;
+        padding: 0 10px;
+    }
+    .information-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px 0 0 8px;
+        background-color: #62CDB9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 350px;
+        padding: 10px;
+        transition: 0.6s ease-in-out left;
+        z-index: 10;
+    }
+    .information-menu h1{
+        font-weight: 400;
+        font-size: 25px;
+        text-align: center;
+        padding: 20px 5px;
+        color: #fff;
+    }
+    .animation{
+        width: 100%;
+        height: 350px;
+    }
+    .ctn-btn{
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .ctn-btn .btn-registrar2,
+    .ctn-btn .btn-iniciar2{
+        background-color: #2E3E53;
+        display: block;
+        text-decoration: none;
+        width: 70%;
+        padding: 10px 15px;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+    }
+    .ctn-btn .btn-iniciar2{
+        display: none;
+    }
+    .ctn-form-login .form-login{
+        top: 100px;
+    }
+    .ctn-form-login .form-register{
+        top: 90px;
+    }
+    .options{
+        visibility: hidden;
+    }
+    .ctn-menu.active div.information-menu {
+        left: 350px;
+        border-radius: 0 8px 8px 0;
+    }
+    .ctn-menu.active div.ctn-form-login {
+        left: 0;
+        border-radius: 8px 0 0 8px;
+    }
+    .ctn-menu.active .information-menu .ctn-btn .btn-registrar2{
+        display: none;
+    }
+    .ctn-menu.active .information-menu .ctn-btn .btn-iniciar2{
+        display: block  ;
+    }
+    .menu-lateral{
+        width: 300px;
+    }
+    body.active-barra .header-inicio,
+    body.active-barra main{
+        transform: translateX(-300px);
+    }
+    .contenedor-links{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+    .contenedor-tabla{
+        height: 400px;
+        overflow: -moz-hidden-unscrollable;
+        overflow-y: auto;
+    }
+    .add{
+        display: none;
+    } 
+    .view-pc{
+        width: 35%;
+    }
+    .agregar-link{
+        width: 100%;
+        display: block;
+        visibility: visible;
+    }
+    .listar-link{
+        width: 60%;
+        height: 550px;
+    }
+    .contenedor-usuario{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .personal-information{
+        width: 320px;
+    }
+    .account-information{
+        width: 320px;
+        margin: 0;
+    }
+    .contenedor-usuario2{
+        padding: 25px;
+        width: 80%;
+        height: 500px;
+        border-radius: 8px;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .ctn-menu {
+        position: relative;
+        width: 1000px;
+    }
+    .information-menu{
+        width: 500px;
+    }
+    .information-menu h1{
+        font-size: 30px;
+    }
+    .ctn-form-login{
+        width: 500px;
+        left: 500px;
+    }
+    .ctn-menu.active div.information-menu {
+        left: 500px;
+    }
+    .terms{
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .btn-registrar {
+        margin: 25px auto 30px auto;
+    }
+    .contenedor-links{
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        overflow: hidden;
+    }
+    .personal-information{
+        width: 40%;
+    }
+    .account-information{
+        width: 40%;
+    }
+}

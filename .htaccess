@@ -1,0 +1,15 @@
+#https://norfipc.com/codigos/como-usar-htaccess-apache-trucos-ejemplos-practicos.php
+#https://www.whoishostingthis.com/resources/htaccess/
+#http://www.netandsoftware.es/articulos-blog/articulos-del-blog/art-para-webmasters-y-joomla/505-htaccess-en-profundidad-la-guia-completa
+#https://ticket.cdmon.com/es/support/solutions/articles/7000006237-informaci%C3%B3n-y-usos-del-fichero-htaccess
+
+Options All -Indexes
+RewriteEngine On
+RewriteRule ^([-a-zA-Z0-9#/]+)$ index.php?url=$1
+
+#asegurando el archivo htacces
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
