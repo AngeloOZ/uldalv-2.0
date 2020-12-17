@@ -295,7 +295,6 @@ body{
     height: 25px;
     opacity: 0.9;
     font-weight: bold;
-
 }
 .btn_acciones .editar:hover,
 .btn_acciones .eliminar:hover{
@@ -324,6 +323,10 @@ body{
 .task.enlace a > p{
     padding: 0;
     margin: 0;
+    color: var(--light-text);
+}
+body.active-dark .task.enlace a > p{
+    color: var(--dark-text);
 }
 .task.enlace a{
     display: inline-block;
@@ -334,6 +337,63 @@ body{
     word-wrap: break-word;
     overflow-y: hidden;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               Disenio Tareas                               */
+/* -------------------------------------------------------------------------- */
+.task.tasknew{
+    padding: 10px;
+    padding-top: 15px;
+    text-align: center;
+}
+.task.tasknew > h2{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+.task.tasknew > p{
+    font-size: 16px;
+    word-wrap: break-word;
+    max-height: 110px;
+    overflow-y: hidden;
+}
+.task_finish{
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 50%;
+    color: var(--light-text);
+    font-weight: bold;
+    border: 1px solid var(--alert-success);
+    border-radius: 5px;
+    height: 25px;
+    outline: none;
+}
+.task_finish::before{
+    content: 'Completar';
+}
+.task_finish.finished{
+    background-color: var(--alert-success);
+    color: #fff;
+}
+.task_finish.finished::before{
+    content: 'Completado';
+}
+
+body.active-dark .task_finish{
+    background-color: transparent;
+    color: var(--dark-text);
+}
+
+body.active-dark .task_finish.finished{
+    background-color: var(--alert-success);
+    color: #fff;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                    Modal                                   */
@@ -347,6 +407,7 @@ body{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    color: #000;
 }
 .modal.active_modal{
     display: flex;

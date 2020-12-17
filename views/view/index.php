@@ -106,5 +106,6 @@
         })
     </script>
     <script src="<?php echo JS."ajaxenlaces.js" ?>"></script>
+    <script src="<?php echo JS."ajaxtareas.js" ?>"></script>
 </body>
 </html>

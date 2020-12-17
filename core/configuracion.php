@@ -33,7 +33,7 @@ define('IMG', ASSETS.'img/');
 */
 define('LDB_ENGINE', 'mysql');
 define('LDB_HOST', 'localhost');
-define('LDB_NAME', 'bdd_udalv');
+define('LDB_NAME', 'bdd_udalvpro');
 define('LDB_USER', 'root');
 define('LDB_PASS', '');
 define('LDB_CHARSET', 'utf8');
