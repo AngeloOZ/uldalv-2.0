@@ -16,11 +16,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UDALV PROJECT</title>
+
     <link rel="stylesheet" href="<?php echo CSS ?>style.css">
 
     <!-- SweeAlert -->
     <link rel="stylesheet" href="<?php echo CSS ?>sweetalert2.min.css">
-    <script src="<?php echo JS."sweetalert2.all.min" ?>"></script>
+    <script src="<?php echo JS ?>sweetalert2.all.min.js"></script>
 
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/736596057b.js" crossorigin="anonymous"></script>
@@ -36,11 +37,11 @@
             <i class="fas fa-tasks"></i>
             <span>Tareas</span>
         </a>
-        <a href="tareas" class="btn-menu">
+        <a href="<?php echo URL."notas" ?>" class="btn-menu">
             <i class="fas fa-clipboard"></i>
             <span>Notas</span>
         </a>
-        <a href="tareas" class="btn-menu">
+        <a href="<?php echo URL."mood" ?>" class="btn-menu">
             <i class="fas fa-moon"></i>
             <span>Mood Track</span>
         </a>
@@ -70,42 +71,28 @@
         </div>
     </nav>
     <!-- Contenedor -->
-    <div class="container">
+    <div class="container-main">
         <?php 
             require_once VIEWS."/module/".$section.".php"; 
         ?>
     </div>
 
     <div class="modal" id="modal">
-        <div class="modal_contenedor">
+        <div class="modal_contenedor ">
             <span class="close_modal"><i class="far fa-window-close"></i></span>
             <?php 
-                require_once VIEWS."/module/modal.".$section.".php"; 
+                $sectionMood = ['notas','enlaces','tareas','mood'];
+                if(in_array($section, $sectionMood)){
+                    require_once VIEWS."module/modal.".$section.".php"; 
+                }
             ?>
             <button class="cancelar" id="btn_modal_cancel">Cancelar</button>
         </div>
     </div>
 
     <script src="<?php echo JS.'main.js' ?>"></script>
-    <script>
-        const body = document.querySelector('body');
-        const btnDark = document.getElementById("dark-mode");
-
-        if(localStorage.getItem('status-dark-mode') === 'true'){
-            body.classList.add('active-dark')
-        }else{
-            body.classList.remove('active-dark')
-        } 
-        btnDark.addEventListener('click', ()=>{
-            body.classList.toggle('active-dark')
-            if(body.classList.contains('active-dark')){
-                localStorage.setItem('status-dark-mode','true')
-            }else{
-                localStorage.setItem('status-dark-mode','false')
-            }
-        })
-    </script>
     <script src="<?php echo JS."ajaxenlaces.js" ?>"></script>
     <script src="<?php echo JS."ajaxtareas.js" ?>"></script>
+    <script src="<?php echo JS."ajaxnotas.js" ?>"></script>
 </body>
 </html>
