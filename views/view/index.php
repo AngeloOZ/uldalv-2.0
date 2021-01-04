@@ -94,5 +94,6 @@
     <script src="<?php echo JS."ajaxenlaces.js" ?>"></script>
     <script src="<?php echo JS."ajaxtareas.js" ?>"></script>
     <script src="<?php echo JS."ajaxnotas.js" ?>"></script>
+    <script src="<?php echo JS."ajaxmood.js" ?>"></script>
 </body>
 </html>
